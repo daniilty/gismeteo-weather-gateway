@@ -52,13 +52,8 @@ func (s *ServiceImpl) GetWeather() (string, error) {
 		return "", fmt.Errorf("no weather description")
 	}
 
-	description := strings.ReplaceAll(weatherDescription[0].LastChild.Data, "\n", "")
-	description = strings.ReplaceAll(description, "\t", "")
-
 	temp := strings.ReplaceAll(unitTemp[0].LastChild.Data, "\n", "")
 	temp = strings.ReplaceAll(temp, "\t", "")
 
-	weather := temp + " " + description
-
-	return weather, nil
+	return temp, nil
 }
